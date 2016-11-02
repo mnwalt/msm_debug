@@ -40,8 +40,8 @@ class ActorsController < ApplicationController
   end
 
   def destroy
-    @actor = Actor.find(params[:id])
+    @actor = Actor.find_by({ :id => params[:id] }).destroy
 
-    @actor.destroy
+    redirect_to("http://localhost:3000/actors")
   end
 end
